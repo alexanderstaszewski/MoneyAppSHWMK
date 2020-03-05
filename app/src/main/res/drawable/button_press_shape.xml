@@ -3,8 +3,7 @@
     <item>
         <shape xmlns:android="http://schemas.android.com/apk/res/android"
             android:shape="rectangle"
-            android:elevation="20dp"
-            android:foreground="@mipmap/ic_speaker_foreground">
+            android:elevation="20dp">
 
             <solid android:color="@color/colorPrimaryDark"/>
             <corners android:radius="100dp"/>
