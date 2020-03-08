@@ -19,5 +19,8 @@ public abstract class MoneyAppDatabase extends RoomDatabase
 
     public static synchronized MoneyAppDatabase getInstance(Context context)
     {
+
+        //please fix this later
+        return null;
     }
 }
