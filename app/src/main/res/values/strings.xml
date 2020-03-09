@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MoneyAppSHWMK</string>
+    <string name="action_colour_settings">Colour Picker</string>
 </resources>
