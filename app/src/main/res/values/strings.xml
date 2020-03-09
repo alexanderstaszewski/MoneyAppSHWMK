@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MoneyAppSHWMK</string>
     <string name="action_colour_settings">Colour Picker</string>
+    <string name="balance_button">Speak Balance</string>
+    <string name="wallet_button">Open Wallet</string>
+    <string name="camera_button">Open Camera to Scan Register</string>
+    <string name="transaction_button">View Transactions</string>
+    <string name="back_button">Go Back</string>
 </resources>

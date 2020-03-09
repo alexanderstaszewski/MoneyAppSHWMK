@@ -4,9 +4,9 @@
         <shape
             android:shape="rectangle">
 
-            <solid android:color="@color/colorButtonPress"/>
+            <solid android:color="@color/colorButton"/>
             <corners android:radius="100dp"/>
         </shape>
     </item>
-    <item android:drawable="@mipmap/white_wallet_foreground" />
+    <item android:drawable="@mipmap/back_foreground" />
 </layer-list>

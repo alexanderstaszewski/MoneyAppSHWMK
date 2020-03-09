@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_colour_settings"
+        android:id="@+id/colourSettings"
         android:icon="@mipmap/white_colour_picker_big_foreground"
         android:title="@string/action_colour_settings"
         app:showAsAction="ifRoom"/>

@@ -24,45 +24,44 @@
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginStart="157dp"
-        android:layout_marginTop="104dp"
         android:layout_marginEnd="158dp"
+        android:layout_marginBottom="32dp"
         android:adjustViewBounds="false"
         android:background="@animator/button_speaker_change_shape"
         android:cropToPadding="true"
         android:stateListAnimator="@animator/button_elevation"
+        android:contentDescription="@string/balance_button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonWallet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/buttonWallet"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="288dp"
         android:layout_marginBottom="64dp"
         android:adjustViewBounds="false"
         android:background="@animator/button_wallet_change_shape"
         android:cropToPadding="true"
         android:stateListAnimator="@animator/button_elevation"
+        android:contentDescription="@string/wallet_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/buttonCamera"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_marginTop="288dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="64dp"
         android:adjustViewBounds="false"
         android:background="@animator/button_camera_change_shape"
         android:cropToPadding="true"
         android:stateListAnimator="@animator/button_elevation"
+        android:contentDescription="@string/camera_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/buttonTransaction"
@@ -77,6 +76,7 @@
         android:cropToPadding="true"
         android:drawable="@mipmap/transaction_foreground"
         android:stateListAnimator="@animator/button_elevation"
+        android:contentDescription="@string/transaction_button"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
