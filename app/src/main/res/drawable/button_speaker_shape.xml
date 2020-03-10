@@ -8,6 +8,5 @@
             <corners android:radius="100dp"/>
         </shape>
     </item>
-    <item android:id="@+id/foreground_item"
-        android:drawable="@mipmap/speaker_foreground" />
+    <item android:drawable="@mipmap/speaker_foreground" />
 </layer-list>

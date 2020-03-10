@@ -8,6 +8,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.shapes.Shape;
@@ -19,15 +20,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences prefs;
+    ImageButton balanceButton, walletButton, cameraButton, transactionButton;
+
+    //Create an arraylist to store the buttons so that if the user changes colours we can access these easily
+    ArrayList<ImageButton> buttons = new ArrayList<ImageButton>();
+    //Create another arraylist to store the drawables for the buttons
+    ArrayList<Integer> drawables = new ArrayList<Integer>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        balanceButton = (ImageButton) findViewById(R.id.buttonBalance);
+        walletButton = (ImageButton) findViewById(R.id.buttonWallet);
+        cameraButton = (ImageButton) findViewById(R.id.buttonCamera);
+        transactionButton = (ImageButton) findViewById(R.id.buttonTransaction);
 
         prefs = getApplicationContext().getSharedPreferences(
                 "com.example.moneyappshwmk", 0);
@@ -36,16 +52,31 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt("button_color", getResources().getColor(R.color.colorAccent)); // Storing integer
         editor.commit();
 
+        //Put all the buttons into the arraylist
+        List<ImageButton> tempButtons = Arrays.asList(balanceButton, walletButton, cameraButton, transactionButton);
+        buttons.addAll(tempButtons);
+
+        //Put all the drawables for the icons into an arraylist
+        List<Integer> tempDrawables = Arrays.asList(R.drawable.button_speaker_shape, R.drawable.button_wallet_shape, R.drawable.button_camera_shape, R.drawable.button_transaction_shape);
+        drawables.addAll(tempDrawables);
+
+        //getWindow().getDecorView().setBackgroundColor(prefs.getInt("button_color",-1));
+
+        for (int i = 0; i < buttons.size(); i++)
+        {
+            ImageButton button = buttons.get(i);
+
+            LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(this, drawables.get(i));
+            button.setBackground(layerDrawable);
+
+            GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.background_item);
+
+            gradientDrawable.setColor(prefs.getInt("button_color",-1));
 
 
-//        //getWindow().getDecorView().setBackgroundColor(prefs.getInt("button_color",-1));
-//        ImageButton button = (ImageButton) findViewById(R.id.buttonBalance);
-//        LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(this, R.drawable.button_speaker_shape);
-//        button.setBackground(layerDrawable);
-//
-//        GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.background_item);
-//
-//        gradientDrawable.setColor(prefs.getInt("button_color",-1));
+        }
+
+
     }
 
 
