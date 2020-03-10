@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences prefs;
     ImageButton balanceButton, walletButton, cameraButton, transactionButton;
+    ChangeColour changeColour = new ChangeColour();
 
     //Create an arraylist to store the buttons so that if the user changes colours we can access these easily
     ArrayList<ImageButton> buttons = new ArrayList<ImageButton>();
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
 
         editor.putInt("button_color", getResources().getColor(R.color.colorAccent)); // Storing integer
-        editor.commit();
+        editor.apply();
 
         //Put all the buttons into the arraylist
         List<ImageButton> tempButtons = Arrays.asList(balanceButton, walletButton, cameraButton, transactionButton);
@@ -61,21 +62,9 @@ public class MainActivity extends AppCompatActivity {
         drawables.addAll(tempDrawables);
 
         //getWindow().getDecorView().setBackgroundColor(prefs.getInt("button_color",-1));
-
-        for (int i = 0; i < buttons.size(); i++)
-        {
-            ImageButton button = buttons.get(i);
-
-            LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(this, drawables.get(i));
-            button.setBackground(layerDrawable);
-
-            GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.background_item);
-
-            gradientDrawable.setColor(prefs.getInt("button_color",-1));
-
-
-        }
-
+        changeColour.setButtons(buttons);
+        changeColour.setDrawables(drawables);
+        changeColour.changeColours(this, prefs.getInt("button_color",-1));
 
     }
 
