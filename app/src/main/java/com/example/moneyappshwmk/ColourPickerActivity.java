@@ -32,12 +32,26 @@ public class ColourPickerActivity extends AppCompatActivity {
                 "com.example.moneyappshwmk", 0);
         SharedPreferences.Editor editor = prefs.edit();
 
+        editor.putInt("button_color", getResources().getColor(R.color.colorButton));
+        editor.commit();
+
         backButton = (ImageButton) findViewById(R.id.buttonBack);
 
         //add the back button and drawable into the arraylists
         buttons.add(backButton);
         drawables.add(R.drawable.button_back_shape);
 
+        changeColour.setButtons(buttons);
+        changeColour.setDrawables(drawables);
+        changeColour.changeColours(this, prefs.getInt("button_color",-1));
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        //Change the colours when switching through activities if necessary
         changeColour.setButtons(buttons);
         changeColour.setDrawables(drawables);
         changeColour.changeColours(this, prefs.getInt("button_color",-1));

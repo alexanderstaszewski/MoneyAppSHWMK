@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 "com.example.moneyappshwmk", 0);
         SharedPreferences.Editor editor = prefs.edit();
 
-        editor.putInt("button_color", getResources().getColor(R.color.colorAccent)); // Storing integer
-        editor.apply();
+        editor.putInt("button_color", getResources().getColor(R.color.colorAccent));
+        editor.commit();
 
         //Put all the buttons into the arraylist
         List<ImageButton> tempButtons = Arrays.asList(balanceButton, walletButton, cameraButton, transactionButton);
@@ -74,6 +74,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        //Change the colours when switching through activities if necessary
+        changeColour.setButtons(buttons);
+        changeColour.setDrawables(drawables);
+        changeColour.changeColours(this, prefs.getInt("button_color",-1));
     }
 
     //Function that listens to whenever an icon is pressed on the app bar, so we don't need to use onClick
