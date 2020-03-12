@@ -46,12 +46,13 @@ public class MainActivity extends AppCompatActivity {
         cameraButton = (ImageButton) findViewById(R.id.buttonCamera);
         transactionButton = (ImageButton) findViewById(R.id.buttonTransaction);
 
+
+
         prefs = getApplicationContext().getSharedPreferences(
                 "com.example.moneyappshwmk", 0);
         SharedPreferences.Editor editor = prefs.edit();
 
-        editor.putInt("button_color", getResources().getColor(R.color.colorAccent));
-        editor.commit();
+
 
         //Put all the buttons into the arraylist
         List<ImageButton> tempButtons = Arrays.asList(balanceButton, walletButton, cameraButton, transactionButton);

@@ -3,6 +3,7 @@ package com.example.moneyappshwmk;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
+import android.util.Log;
 import android.widget.ImageButton;
 
 import androidx.core.content.ContextCompat;
@@ -32,19 +33,22 @@ public class ChangeColour {
 
     public void changeColours(Context context, Integer buttonColour)
     {
-        for (int i = 0; i < buttons.size(); i++)
+        //If the user has not chosen a colour yet then buttonColour should be -1, if we don't check this it will become white by default
+        if (buttonColour != -1)
         {
-            ImageButton button = buttons.get(i);
+            for (int i = 0; i < buttons.size(); i++)
+            {
+                ImageButton button = buttons.get(i);
 
-            LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(context, drawables.get(i));
-            button.setBackground(layerDrawable);
+                LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(context, drawables.get(i));
+                button.setBackground(layerDrawable);
 
-            GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.background_item);
+                GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.background_item);
 
-            gradientDrawable.setColor(buttonColour);
-
-
+                gradientDrawable.setColor(buttonColour);
+            }
         }
+
 
         return;
     }

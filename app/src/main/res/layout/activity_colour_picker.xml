@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ColourPickerActivity">
 
+    <com.skydoves.colorpickerview.ColorPickerView
+        android:id="@+id/colorPickerView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        app:preferenceName="lastColour"
+        app:palette="@drawable/palette"
+        app:selector="@drawable/wheel"
+        app:actionMode="always"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <ImageButton
         android:id="@+id/buttonBack"
         android:layout_width="128dp"
@@ -15,11 +30,24 @@
         android:adjustViewBounds="false"
         android:background="@drawable/button_back_shape"
         android:cropToPadding="true"
-        android:drawable="@mipmap/transaction_foreground"
         android:onClick="onBackClick"
         android:stateListAnimator="@animator/button_elevation"
         android:contentDescription="@string/back_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonUndo"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/button_undo_shape"
+        android:contentDescription="@string/back_button"
+        android:cropToPadding="true"
+        android:stateListAnimator="@animator/button_elevation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
