@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ColourPickerActivity">
+    tools:context=".ColorPickerActivity">
 
     <com.skydoves.colorpickerview.ColorPickerView
         android:id="@+id/colorPickerView"
@@ -13,7 +13,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
-        app:preferenceName="lastColour"
+        app:preferenceName="lastColor"
         app:palette="@drawable/palette"
         app:selector="@drawable/wheel"
         app:actionMode="always"
@@ -44,7 +44,7 @@
         android:layout_marginBottom="64dp"
         android:adjustViewBounds="false"
         android:background="@drawable/button_undo_shape"
-        android:contentDescription="@string/back_button"
+        android:contentDescription="@string/undo_button"
         android:cropToPadding="true"
         android:stateListAnimator="@animator/button_elevation"
         app:layout_constraintBottom_toBottomOf="parent"

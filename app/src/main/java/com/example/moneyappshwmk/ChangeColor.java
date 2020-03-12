@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
-public class ChangeColour {
+public class ChangeColor {
 
     public ArrayList<ImageButton> getButtons() {
         return buttons;
@@ -31,10 +31,10 @@ public class ChangeColour {
     private ArrayList<ImageButton> buttons = new ArrayList<ImageButton>();
     private ArrayList<Integer> drawables = new ArrayList<Integer>();
 
-    public void changeColours(Context context, Integer buttonColour)
+    public void changeColors(Context context, Integer buttonColor)
     {
-        //If the user has not chosen a colour yet then buttonColour should be -1, if we don't check this it will become white by default
-        if (buttonColour != -1)
+        //If the user has not chosen a color yet then buttonColor should be -1, if we don't check this it will become white by default
+        if (buttonColor != -1)
         {
             for (int i = 0; i < buttons.size(); i++)
             {
@@ -45,7 +45,7 @@ public class ChangeColour {
 
                 GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.background_item);
 
-                gradientDrawable.setColor(buttonColour);
+                gradientDrawable.setColor(buttonColor);
             }
         }
 

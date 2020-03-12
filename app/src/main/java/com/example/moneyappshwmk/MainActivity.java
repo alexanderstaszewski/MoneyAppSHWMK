@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences prefs;
     ImageButton balanceButton, walletButton, cameraButton, transactionButton;
-    ChangeColour changeColour = new ChangeColour();
+    ChangeColor changeColor = new ChangeColor();
 
-    //Create an arraylist to store the buttons so that if the user changes colours we can access these easily
+    //Create an arraylist to store the buttons so that if the user changes colors we can access these easily
     ArrayList<ImageButton> buttons = new ArrayList<ImageButton>();
     //Create another arraylist to store the drawables for the buttons
     ArrayList<Integer> drawables = new ArrayList<Integer>();
@@ -46,13 +46,9 @@ public class MainActivity extends AppCompatActivity {
         cameraButton = (ImageButton) findViewById(R.id.buttonCamera);
         transactionButton = (ImageButton) findViewById(R.id.buttonTransaction);
 
-
-
         prefs = getApplicationContext().getSharedPreferences(
                 "com.example.moneyappshwmk", 0);
         SharedPreferences.Editor editor = prefs.edit();
-
-
 
         //Put all the buttons into the arraylist
         List<ImageButton> tempButtons = Arrays.asList(balanceButton, walletButton, cameraButton, transactionButton);
@@ -63,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
         drawables.addAll(tempDrawables);
 
         //getWindow().getDecorView().setBackgroundColor(prefs.getInt("button_color",-1));
-        changeColour.setButtons(buttons);
-        changeColour.setDrawables(drawables);
-        changeColour.changeColours(this, prefs.getInt("button_color",-1));
+        changeColor.setButtons(buttons);
+        changeColor.setDrawables(drawables);
+        changeColor.changeColors(this, prefs.getInt("button_color",-1));
 
     }
 
@@ -82,24 +78,24 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onResume();
 
-        //Change the colours when switching through activities if necessary
-        changeColour.setButtons(buttons);
-        changeColour.setDrawables(drawables);
-        changeColour.changeColours(this, prefs.getInt("button_color",-1));
+        //Change the colors when switching through activities if necessary
+        changeColor.setButtons(buttons);
+        changeColor.setDrawables(drawables);
+        changeColor.changeColors(this, prefs.getInt("button_color",-1));
     }
 
     //Function that listens to whenever an icon is pressed on the app bar, so we don't need to use onClick
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.colourSettings:
-                //Get the colour picker activity, so we can edit the colours of the buttons
-                Intent colourPickerIntent = new Intent(this, ColourPickerActivity.class);
+            case R.id.colorSettings:
+                //Get the color picker activity, so we can edit the colors of the buttons
+                Intent colorPickerIntent = new Intent(this, ColorPickerActivity.class);
                 //Set a flag to clear the activity stack (you cannot go back to this using the back button then)
-                colourPickerIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                colorPickerIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-                //Start the colour picker activity
-                startActivity(colourPickerIntent);
+                //Start the color picker activity
+                startActivity(colorPickerIntent);
 
                 return true;
 
