@@ -54,7 +54,7 @@ public class ColorPickerActivity extends AppCompatActivity {
 
         if (buttonColor == -1)
         {
-            editor.putInt("lastColor", R.color.colorButton);
+            editor.putInt("lastColor", defaultButtonColor);
             editor.commit();
         }
         else
