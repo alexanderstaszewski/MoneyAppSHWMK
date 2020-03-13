@@ -3,13 +3,14 @@ package com.example.moneyappshwmk;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
+import android.util.Log;
 import android.widget.ImageButton;
 
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
-public class ChangeColour {
+public class ChangeColor {
 
     public ArrayList<ImageButton> getButtons() {
         return buttons;
@@ -30,21 +31,24 @@ public class ChangeColour {
     private ArrayList<ImageButton> buttons = new ArrayList<ImageButton>();
     private ArrayList<Integer> drawables = new ArrayList<Integer>();
 
-    public void changeColours(Context context, Integer buttonColour)
+    public void changeColors(Context context, Integer buttonColor)
     {
-        for (int i = 0; i < buttons.size(); i++)
+        //If the user has not chosen a color yet then buttonColor should be -1, if we don't check this it will become white by default
+        if (buttonColor != -1)
         {
-            ImageButton button = buttons.get(i);
+            for (int i = 0; i < buttons.size(); i++)
+            {
+                ImageButton button = buttons.get(i);
 
-            LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(context, drawables.get(i));
-            button.setBackground(layerDrawable);
+                LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(context, drawables.get(i));
+                button.setBackground(layerDrawable);
 
-            GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.background_item);
+                GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.background_item);
 
-            gradientDrawable.setColor(buttonColour);
-
-
+                gradientDrawable.setColor(buttonColor);
+            }
         }
+
 
         return;
     }

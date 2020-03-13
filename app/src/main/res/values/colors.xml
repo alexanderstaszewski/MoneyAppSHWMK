@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#494949</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorButton">#A9F3FA</color>
+    <color name="colorTestTest">#A9F3FA</color>
     <color name="colorButtonPress">#494949</color>
 </resources>
