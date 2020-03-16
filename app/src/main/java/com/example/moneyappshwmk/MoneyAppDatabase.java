@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 @Database(
         entities = {
-                Cash.class,
+                Wallet.class,
                 Payment.class,
                 Transaction.class
         },
@@ -24,7 +24,6 @@ public abstract class MoneyAppDatabase extends RoomDatabase
         {
             instance = Room.databaseBuilder(context.getApplicationContext(), MoneyAppDatabase.class, db_name).fallbackToDestructiveMigration().build();
         }
-        //please fix this later
         return instance;
     }
     public abstract DAO money_dao();

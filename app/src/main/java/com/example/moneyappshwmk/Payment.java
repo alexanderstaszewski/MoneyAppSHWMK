@@ -7,15 +7,22 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "payment",
         primaryKeys = {"tid", "value"},
-        foreignKeys = @ForeignKey(entity = Transaction.class,
-                                    parentColumns = "tid",
-                                    childColumns = "value"))
-public  class Payment
+        foreignKeys = {
+                @ForeignKey(entity = Transaction.class,
+                        parentColumns = "transaction_tid",
+                        childColumns = "payment_tid"),
+                @ForeignKey(entity = Wallet.class,
+                        parentColumns = "wallet_wid",
+                        childColumns = "payment_wid")
+        })
+public class Payment
 {
-    public int tid;
+    @PrimaryKey
+    private int payment_tid;
 
-    public int value;
+    @PrimaryKey
+    private int payment_wid;
 
-    @ColumnInfo(name = "payment_number")
+    @ColumnInfo
     public int number;
 }

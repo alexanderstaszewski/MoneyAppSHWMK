@@ -1,17 +1,19 @@
 package com.example.moneyappshwmk;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "cash")
-public class Cash
+public class Wallet
 {
-    @PrimaryKey
-    private int value;
+    @NonNull
+    @PrimaryKey(autoGenerate = true)
+    private int wallet_wid;
 
-    @ColumnInfo(name = "cash_amount")
-    private String amount;
+    private int value;
+    private int amount;
 
     public int getValue() {
         return value;
@@ -21,15 +23,16 @@ public class Cash
         this.value = value;
     }
 
-    public String getAmount() {
+    public int getAmount() {
+
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public Cash(int value, String amount) {
+    public Wallet(int value, int amount) {
         this.value = value;
         this.amount = amount;
     }
