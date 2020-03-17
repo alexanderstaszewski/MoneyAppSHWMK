@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 @Database(
         entities = {
                 Wallet.class,
-                Payment.class,
+                WalletTransactions.class,
                 Transaction.class
         },
         exportSchema = false, version = 1)

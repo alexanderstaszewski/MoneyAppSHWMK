@@ -1,6 +1,7 @@
 package com.example.moneyappshwmk;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
@@ -12,11 +13,25 @@ public class Transaction
 {
     @NonNull
     @PrimaryKey(autoGenerate = true)
-    private int transaction_tid;
+    @ColumnInfo(name = "transaction_id")
+    private int transaction_id;
 
+    @ColumnInfo(name = "change")
     private float change;
+
+    @ColumnInfo(name = "date")
     private Date date;
+
+    @ColumnInfo(name = "location")
     private String location;
+
+    public int getTransaction_id() {
+        return transaction_id;
+    }
+
+    public void setTransaction_id(int transaction_id) {
+        this.transaction_id = transaction_id;
+    }
 
     public float getChange() {
         return change;

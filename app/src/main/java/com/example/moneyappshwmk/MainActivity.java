@@ -14,6 +14,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.shapes.Shape;
 import android.os.Build;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +24,7 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<ImageButton> buttons = new ArrayList<ImageButton>();
     //Create another arraylist to store the drawables for the buttons
     ArrayList<Integer> drawables = new ArrayList<Integer>();
+
+    TextToSpeech tts;
 
 
     @Override
@@ -50,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
                 "com.example.moneyappshwmk", 0);
         SharedPreferences.Editor editor = prefs.edit();
 
+        //Get the TTS class
+        tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+            }
+        });
+        tts.setLanguage(Locale.UK);
+
+
         //Put all the buttons into the arraylist
         List<ImageButton> tempButtons = Arrays.asList(balanceButton, walletButton, cameraButton, transactionButton);
         buttons.addAll(tempButtons);
@@ -62,6 +75,18 @@ public class MainActivity extends AppCompatActivity {
         changeColor.setButtons(buttons);
         changeColor.setDrawables(drawables);
         changeColor.changeColors(this, prefs.getInt("button_color",-1));
+
+        //Listeners for the button clicks
+        balanceButton.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        tts.speak("test", TextToSpeech.QUEUE_FLUSH, null, null);
+                    }
+                }
+        );
 
     }
 
