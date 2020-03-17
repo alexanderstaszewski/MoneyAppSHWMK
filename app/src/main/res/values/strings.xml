@@ -7,4 +7,6 @@
     <string name="transaction_button">View Transactions</string>
     <string name="back_button">Go Back</string>
     <string name="undo_button">Undo Colour Selection</string>
+    <string name="coins_button">Camera to Scan Coins</string>
+    <string name="note_button">Camera to Scan Notes</string>
 </resources>
